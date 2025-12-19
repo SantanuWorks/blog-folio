@@ -45,7 +45,7 @@ export default {
   components: { ArticleCard, EmptyCatalogFallback },
   data() {
     return {
-      categories: ["Technology", "Design", "Business", "Lifestyle", "Travel", "Mew"],
+      categories: ["Technology", "Design", "Business", "Lifestyle", "Travel"],
       selectedCategory: "all",
       blogPosts: [
         {
