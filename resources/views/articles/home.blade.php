@@ -4,7 +4,6 @@
 
 @section('content')
     <div x-show="currentPage === 'blog'">
-
         <section id="lets-get-started"
             class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-800 dark:via-gray-900 dark:to-black py-16 sm:py-20 lg:py-28">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,7 +15,8 @@
                         thoughtful articles on design, technology, lifestyle, and everything in between. Written by
                         passionate creators for curious minds.</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button @@click="window.location = '{{ route('articles.index') }}'"
+                        <button
+                            @@click="currentPage = 'blog'; currentSection = 'world-of-articles'; setTimeout(() => document.getElementById('world-of-articles').scrollIntoView({behavior: 'smooth'}), 100)"
                             class="px-8 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors">Explore
                             Articles</button>
                         <button
@@ -32,12 +32,9 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between mb-8">
                     <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
-                        Featured Story</h2>
-                    <span
-                        class="text-sm text-indigo-600 dark:text-indigo-400 font-medium cursor-pointer hover:text-indigo-700 dark:hover:text-indigo-300">View
-                        All <i class="fas fa-arrow-right ml-1"></i></span>
+                        Featured Story
+                    </h2>
                 </div>
-
                 <div @@click="currentPage = 'post'"
                     class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center cursor-pointer group">
                     <div class="relative overflow-hidden rounded-2xl h-64 sm:h-80 lg:h-96">
@@ -47,7 +44,6 @@
                             class="absolute top-4 left-4 px-3 py-1 bg-indigo-600 text-white text-xs font-medium rounded-full">
                             Featured</div>
                     </div>
-
                     <div class="space-y-4 sm:space-y-6">
                         <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
                             <span
@@ -61,14 +57,17 @@
                         <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">Exploring
                             emerging trends and technologies shaping the digital landscape. From AI-powered design tools
                             to immersive 3D experiences, discover what's next in web design.</p>
-                        {{-- <div class="flex items-center space-x-4">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Author"
-                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover">
-                            <div>
-                                <p class="font-medium text-gray-900 dark:text-white">Sarah Johnson</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">Senior Designer</p>
-                            </div>
-                        </div> --}}
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <span
+                                class="px-3 sm:px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-sm rounded-full">#Web
+                                Design</span>
+                            <span
+                                class="px-3 sm:px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-sm rounded-full">#Trends</span>
+                            <span
+                                class="px-3 sm:px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-sm rounded-full">#UI/UX</span>
+                            <span
+                                class="px-3 sm:px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-sm rounded-full">#Technology</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,13 +83,13 @@
                         Find articles that match your interests
                     </p>
                 </div>
-                <a class="text-center"
-                    href="{{ route('articles.index') }}">
-                    <p class="explore-wrapper text-base sm:text-lg text-gray-600 dark:text-gray-200 font-bold pt-6 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 hover:dark:text-indigo-500">
-                        <span>Explore More</span>
+                <span class="text-center">
+                    <p
+                        class="explore-wrapper text-base sm:text-lg text-gray-600 dark:text-gray-200 font-bold pt-6 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 hover:dark:text-indigo-500">
+                        <span onclick="window.location = '{{ route('articles.index') }}'">Explore More</span>
                         <span class="arrow font-bold"></span>
                     </p>
-                </a>
+                </span>
             </div>
             <featured-article-catalog />
         </section>
@@ -102,7 +101,7 @@
                     class="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-white/20 backdrop-blur-sm rounded-full mb-6">
                     <i class="fas fa-envelope text-white text-xl sm:text-2xl"></i>
                 </div>
-                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">Never Miss a Story
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">Never Miss an Article
                 </h2>
                 <p class="text-base sm:text-lg text-indigo-100 dark:text-indigo-200 mb-8">Get the latest articles
                     delivered straight to your inbox every week</p>
