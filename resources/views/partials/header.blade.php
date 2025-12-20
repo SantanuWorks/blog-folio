@@ -10,9 +10,9 @@
                         <i
                             class="header-icon fas fa-feather-alt text-stone-900 dark:text-white text-sm sm:text-base"></i>
                     @endif
-                    <h1 onclick="window.location = '{{ request()->routeIs('portfolio.me') ? route('portfolio.me') : route('articles.home') }}'"
+                    <h1 onclick="window.location = '{{ get_header_link() }}'"
                         class="text-2xl font-display font-bold text-stone-900 dark:text-white tracking-tight">
-                        {{ !request()->routeIs('portfolio.me') ? 'Articles By Santanu' : 'My Portfolio' }}
+                        {{ get_header_title() }}
                     </h1>
                 </div>
 
@@ -91,40 +91,40 @@
                         <span x-text="$store.theme.dark ? 'Dark Mode' : 'Light Mode'"></span>
                     </button>
 
-                    <button
-                        class="px-4 py-2 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-lg">
-                        Sign In
-                    </button>
-                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg">
-                        Sign Up
-                    </button>
-
-                    <div x-data="{ openMobile: false }" class="">
-                        <div class="flex items-center space-x-3">
-                            <img @@click="openMobile = !openMobile"
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100"
-                                class="w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300 dark:border-gray-600 object-cover">
-
-                            <span class="text-gray-700 dark:text-gray-200 font-medium">
-                                John Doe
-                            </span>
+                    @if (!request()->routeIs('portfolio.me'))
+                        <button @@click="authModal = true; mode = 'signin'"
+                            class="px-4 py-2 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-lg">
+                            Sign In
+                        </button>
+                        <button @@click="authModal = true; mode = 'signup'"
+                            class="px-4 py-2 bg-blue-600 text-white rounded-lg">
+                            Sign Up
+                        </button>
+                        <div x-show="isLoggedIn" x-data="{ openMobile: false }" class="">
+                            <div class="flex items-center space-x-3">
+                                <img @@click="openMobile = !openMobile"
+                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100"
+                                    class="w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300 dark:border-gray-600 object-cover">
+                                <span class="text-gray-700 dark:text-gray-200 font-medium">
+                                    John Doe
+                                </span>
+                            </div>
+                            <div x-show="openMobile" class="mt-3 space-y-2">
+                                <a href="#"
+                                    class="block py-2 pl-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
+                                    My Profile
+                                </a>
+                                <a href="#"
+                                    class="block py-2 pl-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
+                                    Settings
+                                </a>
+                                <button
+                                    class="w-full text-left py-2 pl-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md">
+                                    Logout
+                                </button>
+                            </div>
                         </div>
-
-                        <div x-show="openMobile" class="mt-3 space-y-2">
-                            <a href="#"
-                                class="block py-2 pl-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-                                My Profile
-                            </a>
-                            <a href="#"
-                                class="block py-2 pl-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200">
-                                Settings
-                            </a>
-                            <button
-                                class="w-full text-left py-2 pl-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md">
-                                Logout
-                            </button>
-                        </div>
-                    </div>
+                    @endif
                 </nav>
             </div>
         </div>

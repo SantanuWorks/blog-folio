@@ -1,4 +1,4 @@
-@if (!request()->routeIs('articles.composer') && !request()->routeIs('portfolio.me'))
+@if (!request()->routeIs('articles.composer') && !request()->routeIs('articles.index') && !request()->routeIs('portfolio.me'))
     <footer class="bg-gray-900 dark:bg-black text-white py-12 sm:py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             @if (!request()->routeIs('portfolio.me'))
