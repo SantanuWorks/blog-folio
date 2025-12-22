@@ -6,13 +6,11 @@ import { createApp } from 'vue';
 
 import FeaturedArticleCatalog from './Components/Articles/Catalog/FeaturedArticleCatalog.vue';
 import CompleteArticleCatalog from './Components/Articles/Catalog/CompleteArticleCatalog.vue';
-import ArticleComposer from './Components/Articles/Composer/ArticleComposer.vue';
 import CommentSection from './Components/Articles/Comments/CommentSection.vue';
 import CommentCard from './Components/Articles/Comments/CommentCard.vue';
 
 const featuredCatalogElement = document.querySelector('#world-of-articles');
 const completeCatalogElement = document.querySelector('#complete-articles');
-const articleComposerElement = document.querySelector('#article-composer');
 const commentSectionElement = document.querySelector('#comment-section');
 
 if (featuredCatalogElement) {
@@ -25,12 +23,6 @@ if (completeCatalogElement) {
     const completeCatalog = createApp({});
     completeCatalog.component('complete-article-catalog', CompleteArticleCatalog);
     completeCatalog.mount('#complete-articles');
-}
-
-if (articleComposerElement) {
-    const articleComposer = createApp({});
-    articleComposer.component('article-composer', ArticleComposer);
-    articleComposer.mount('#article-composer');
 }
 
 if (commentSectionElement) {

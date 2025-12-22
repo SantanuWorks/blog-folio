@@ -1,4 +1,4 @@
-@if (request()->routeIs('portfolio.me'))
+@if (get_domain_type() == 'portfolio')
     <a href="{{ route('portfolio.me') }}"
         class="{{ request()->routeIs('portfolio.me')
             ? 'text-sm font-medium cursor-pointer transition-colors text-indigo-600 dark:text-indigo-400'
@@ -51,7 +51,4 @@
             'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'"
         class="text-sm font-medium cursor-pointer transition-colors">Unleash
         Newsletter</a>
-
-    <button @@click="currentPage = 'write'" :class="isAdmin ? '' : 'hidden'"
-        class="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors">Write</button>
 @endif
