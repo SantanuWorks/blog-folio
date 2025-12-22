@@ -20,9 +20,10 @@
                             class="px-8 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors">Explore
                             Articles</button>
                         <button
-                            @@click="currentSection = 'world-of-articles'; window.location = '{{ route('portfolio.me') }}'"
-                            class="px-8 py-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 font-medium rounded-lg border-2 border-indigo-600 dark:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors">My
-                            Portfolio</button>
+                            @@click="currentSection = 'world-of-articles'; window.open('{{ route('portfolio.me') }}', '_blank')"
+                            class="px-8 py-3 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 font-medium rounded-lg border-2 border-indigo-600 dark:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors">
+                            My Portfolio
+                        </button>
                     </div>
                 </div>
             </div>
@@ -83,13 +84,6 @@
                         Find articles that match your interests
                     </p>
                 </div>
-                <span class="text-center">
-                    <p
-                        class="explore-wrapper text-base sm:text-lg text-gray-600 dark:text-gray-200 font-bold pt-6 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 hover:dark:text-indigo-500">
-                        <span onclick="window.location = '{{ route('articles.index') }}'">Explore More</span>
-                        <span class="arrow font-bold"></span>
-                    </p>
-                </span>
             </div>
             <featured-article-catalog />
         </section>
@@ -107,7 +101,7 @@
                     delivered straight to your inbox every week</p>
                 <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                     <input type="email" placeholder="Enter your email"
-                        class="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-lg text-gray-900 dark:text-white dark:bg-gray-700 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white">
+                        class="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-800 dark:focus:ring-purple-500">
                     <button
                         class="px-6 sm:px-8 py-3 sm:py-4 bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors whitespace-nowrap">Subscribe</button>
                 </div>
