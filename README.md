@@ -4,7 +4,7 @@
 <div align="center">
   
 # BlogFolio
-### A unified platform for blogging and project showcasing
+### A unified platform for blogging and personal portfolio showcasing
 
 </div>
 
