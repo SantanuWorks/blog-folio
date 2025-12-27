@@ -12,35 +12,30 @@ export default defineConfig({
     },
 
     server: {
-        host: '127.0.0.1',
-        port: 5173,
+        host: 'dev.santanupradhan.in',
+        port: 5174,
         strictPort: true,
 
         cors: {
             origin: [
                 'http://dev.santanupradhan.in',
                 'http://dev.articles.santanupradhan.in',
-                'http://dev.admin.santanupradhan.in',
             ],
         },
 
         hmr: {
-            host: '127.0.0.1',
-            port: 5173,
+            host: 'dev.santanupradhan.in',
+            port: 5174,
         },
     },
 
     plugins: [
-        vue({
-            template: {
-                compilerOptions: {
-                    isCustomElement: tag => tag.startsWith('x-'),
-                },
-            },
-        }),
-
+        vue(),
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js', 'resources/js/admin/app.js',],
+            input: [
+                'resources/css/app.css',
+                'resources/js/app.js',
+            ],
             refresh: true,
         }),
     ],
